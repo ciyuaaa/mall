@@ -1,0 +1,86 @@
+<template>
+    <div class="baseInfo">
+        <p>{{ baseInfo.title}}</p>
+        <div class="item-info">
+            <span :style="{color:baseInfo.discountBgColor}"  class="price"   >
+                {{ baseInfo.price }}
+                </span>
+            <span class="old-price">
+                {{ baseInfo.oldPrice }}
+            </span>
+            <span :style="{backgroundColor:baseInfo.discountBgColor,color:'white'}" v-if="baseInfo.discountDesc" class="desc">
+                {{ baseInfo.discountDesc }}
+            </span>
+        </div>
+        <div class="columns">
+            <span v-for="(item, index) in baseInfo.columns" :key="index" class="columns-item">
+                {{item}}
+            </span>
+        </div>
+        <div class="shop-info">
+            <span v-for="(item, index) in baseInfo.services" :key="index" class="shop-info-item"> 
+                <img :src="item.icon" alt="" @load="load">
+                {{item.name}}
+            </span>
+        </div>
+    </div>
+</template>
+
+<script>
+
+export default {
+    name: "DetileBaseInfo",
+    props: {
+        baseInfo: Object
+    },
+    methods: {
+        load() {
+            this.$emit('load')
+        }
+    }
+}
+</script>
+
+<style scoped>
+    .item-info {
+        padding-bottom: 20px;
+    }
+    .price {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .old-price {
+        color: #ccc;
+        /* line */
+        font-size: 12px;
+    }
+    .columns {
+        display: flex;
+        color: #ccc;
+        font-size: 13px;
+        /* text-align: left; */
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+    }
+    .columns-item {
+        flex: 1;
+    }
+    .shop-info {
+        display: flex;
+        font-size: 5px;
+        text-align: left;
+    }
+    .shop-info-item {
+        flex: 2;
+    }
+    .shop-info-item img {
+        width: 12px;
+    }
+    .desc {
+        /* display: inline-block; */
+        font-size: 15px;
+        padding: 4px;
+        border-radius: 10px 10px 10px 10px;
+    }
+</style>
