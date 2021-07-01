@@ -1,19 +1,15 @@
-# supermall
+# mall
 
-## Project setup
-```
-npm install
-```
+## 1.项目简介
+该项目基于 coderwhy supermall 项目
+主要包含商城首页，详情页，购物车，商品分类，个人中心等模块；
+1.商城首页部分: 主要包括4个部分：顶部导航栏，轮播图，分类，商品部分。
+2.详情页部分: 主要包括7个部分：商品轮播图，商品信息，商家信息，商品图片，商品参数，商品评论以及推荐商品
+3.购物车部分: 购物车商品以及结算, 商品选中与全选的设置, 商品的增删改
+4.个人中心部分: 登录, 注册, 账户信息, 修改密码
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 2.技术栈
+vue2 + vuex + vue-router + vue-cli + ES6/7 + fetch + flex
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 3.部分截图
+![image](https://user-images.githubusercontent.com/62799783/124079510-d4259f00-da7b-11eb-8819-6feeba7aed15.png)
