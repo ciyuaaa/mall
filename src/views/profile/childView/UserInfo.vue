@@ -110,6 +110,7 @@ export default {
             this.$router.back()
             this.$store.state.isLogin = false
             this.$store.getters.getUser.isLogin = false
+            this.$store.state.product = []
             this.$store.commit('saveData')
         }
     },
