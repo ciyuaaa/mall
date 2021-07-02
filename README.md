@@ -1,6 +1,4 @@
-# mall
-
-## 1.项目简介
+## 项目简介
 该项目基于 coderwhy supermall 项目
 主要包含商城首页，详情页，购物车，商品分类，个人中心等模块;
 
@@ -12,8 +10,8 @@
 
 4.个人中心部分: 登录, 注册, 账户信息, 修改密码
 
-## 2.技术栈
+## 技术栈
 vue2 + vuex + vue-router + vue-cli + ES6/7 + fetch + flex
 
-## 3.部分截图
+## 部分截图
 ![image](https://user-images.githubusercontent.com/62799783/124079510-d4259f00-da7b-11eb-8819-6feeba7aed15.png)
