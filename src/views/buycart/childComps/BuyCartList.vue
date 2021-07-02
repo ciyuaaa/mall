@@ -13,6 +13,7 @@
                     <span class="price">{{item.price}} </span>
                     <count class="buycar-count" :item="item" :min="1" 
                         text="最大支持200件" :count="200"
+                        :lessBackFn="less(item)"
                     />
                 </div>
             </div>
@@ -34,20 +35,9 @@ export default {
     },
     methods: {
         less(item) {
-            item.count > 1 ? item.count-- : false
-        },
-        add(item) {
-            item.count++
-        },
-        select(item) {
-            item.checkSelect = !item.checkSelect
-        },
-        inp(item) {
-            if (item.count > 200) {
-                item.count = 200
-            }
-            if (item.count == 0) {
-                item.count = 1
+            let store = this.$store
+            return function () {
+                store.commit("lessPorduct", item)
             }
         }
     }

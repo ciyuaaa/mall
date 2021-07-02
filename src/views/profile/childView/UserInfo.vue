@@ -43,6 +43,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="loging-out" @click="loginOut">
+                    退出登录
+                </div>
             </div>
         </div>
         <router-view></router-view>
@@ -102,6 +105,12 @@ export default {
             // }
             this.$popUps.show("上传失败，没有服务器")
             
+        },
+        loginOut() {
+            this.$router.back()
+            this.$store.state.isLogin = false
+            this.$store.getters.getUser.isLogin = false
+            this.$store.commit('saveData')
         }
     },
     computed: {
@@ -167,5 +176,15 @@ export default {
     width: 100%;
     height: 100%;
     opacity: 0;
+}
+.loging-out {
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    background-color: #d8584a;
+    border-radius: 10px
 }
 </style>

@@ -26,6 +26,7 @@ export default {
                 password: "",
                 name: "",
                 product: [],
+                isLogin: false
             }
         }
     },
@@ -44,19 +45,18 @@ export default {
         },
         loginSuc(addUser = false) {
             if (addUser) {
-                this.$store.state.userAll.push(this.loginUser)
+                this.index = this.$store.state.userAll.push(this.loginUser) - 1
             }
-            this.$store.commit('userLogin', this.loginUser)
+            this.$store.commit('userLogin', this.index)
             this.$router.push('/profile')
         },
         login() {
-            console.log(this.loginUser.id)
             if (userAll.length) {
                 let hasUser = this.hasUser(userAll)
                 if (hasUser) {
                     let isPasswordErr = this.isPasswordErr(userAll)
                     if (isPasswordErr) {
-                        console.log("密码错误")
+                        this.$popUps.show("密码错误")
                     } else {
                         this.loginSuc()
                     }

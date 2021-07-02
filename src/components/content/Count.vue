@@ -1,7 +1,7 @@
 <template>
     <div class="count">
         <slot></slot>
-        <button @click="less" :class="{'less-active': !mins}">- </button>
+        <button @click="less(lessBackFn)" :class="{'less-active': !mins}">- </button>
         <input type="number" v-model="item.count" @input="inputs(item)">
         <button @click="add" > +</button>
     </div>
@@ -17,7 +17,8 @@ export default {
             default: 0
         },
         count: Number,
-        text: ""
+        text: "",
+        lessBackFn: null
     },
     components: {
         
@@ -27,8 +28,8 @@ export default {
             this.item.count++
             this.$store.commit('saveData')
         },
-        less() {
-            this.mins ? this.item.count-- : false
+        less(fn) {
+            this.mins ? this.item.count-- : fn ? fn() || false : false
             this.$store.commit('saveData')
         },
         inputs(item) {

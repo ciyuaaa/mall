@@ -1,39 +1,49 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { userAll } from '../common/init'
+import { userAll, isLogin ,userIndex,} from '../common/init'
 import utiles from "common/storeUtiles"
 
 Vue.use(Vuex)
 
+function saveData(state) {
+  localStorage.userData = JSON.stringify(state.userAll)
+}
+
 export default new Vuex.Store({
   state: {
-    isLogin: false,
-    userAll: userAll,
+    isLogin,
+    userAll,
+    userIndex,
     product: [],
-    userIndex: 0
   },
   mutations: {
     addProduct(state, prod) {
       if (state.isLogin) {
         utiles.add(this.getters.currentProduct, prod)
-        utiles.saveLocalStorage(state.userAll)
+        saveData(state)
       } else {
         utiles.add(state.product, prod)
       }
     },
-    userLogin(state, user) {
-      state.userAll.some((item, index) => {
-        item.id === user.id ? state.userIndex = index : false
-      })
+    lessPorduct(state, prod) {
+      if (state.isLogin) {
+        utiles.less(this.getters.currentProduct, prod)
+      } else {
+        utiles.less(state.product, prod)
+      }
+    },
+    userLogin(state, index) {
+      state.userIndex = index
       state.isLogin = true
+      state.userAll[index].isLogin = true
 
       if (state.product.length) {
         utiles.add(this.getters.currentProduct, state.product)
-        utiles.saveLocalStorage(state.userAll)
       }
+      saveData(state)
     },
     saveData(state) {
-      localStorage.userData = JSON.stringify(state.userAll)
+      saveData(state)
     },
   },
   actions: {

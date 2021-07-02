@@ -51,36 +51,28 @@ export default {
     }
     .old-price {
         color: #ccc;
-        /* line */
         font-size: 12px;
     }
-    .columns {
+    .shop-info, .columns {
         display: flex;
+        justify-content: space-between;
+    }
+    .columns {
         color: #ccc;
         font-size: 13px;
-        /* text-align: left; */
         border-bottom: 1px solid #ccc;
         margin-bottom: 20px;
         padding-bottom: 5px;
     }
-    .columns-item {
-        flex: 1;
-    }
     .shop-info {
-        display: flex;
         font-size: 5px;
-        text-align: left;
-    }
-    .shop-info-item {
-        flex: 2;
     }
     .shop-info-item img {
         width: 12px;
     }
     .desc {
-        /* display: inline-block; */
         font-size: 15px;
         padding: 4px;
-        border-radius: 10px 10px 10px 10px;
+        border-radius: 10px;
     }
 </style>

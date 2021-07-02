@@ -24,7 +24,19 @@ function add(product, prod) {
         isAdd(product, prod)
     }
 }
-
+function less(product, prod) {
+    if (product.length === 1) {
+        product.pop()
+    } else {
+        product.find((item, index) => {
+            if (item.stock === prod.stock) {
+                index ? product.splice(index, index) :
+                        product.splice(index, index + 1)
+                return  true
+            }
+        })
+    }
+}
 export default {
-    add,
+    add, less
 }
