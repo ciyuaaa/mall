@@ -20,7 +20,6 @@ export default {
     },
     methods: {
         setNewUserName() {
-            console.log(this.name)
             if (this.$store.getters.getUser.id === this.name) {
                 this.$popUps.show('未更改')
                 this.$router.back()

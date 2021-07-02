@@ -55,9 +55,9 @@ export default new Vuex.Store({
       return !Object.keys(getters.currentProduct).length ? 0 : 
       getters.currentProduct[0].price.slice(0,1) + getters.currentProduct.reduce((prev, curr) => {
             if (curr.checkSelect) {
-            return prev + +(curr.price.slice(1) * curr.count)
+              return prev + +(curr.price.slice(1) * curr.count)
             } else {
-            return prev
+              return prev
             }
         }, 0)
     },
@@ -74,7 +74,6 @@ export default new Vuex.Store({
       return state.userAll[state.userIndex]
     },
     currentProduct(state) {
-      console.log(state.isLogin, state.product)
       return state.isLogin ? 
       state.userAll[state.userIndex].product : state.product
     },

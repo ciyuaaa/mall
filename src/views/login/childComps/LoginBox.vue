@@ -2,7 +2,7 @@
     <div>
         <div class="login-box">
             <input type="" placeholder="账号" v-model.trim="loginUser.id">
-            <input type="password" placeholder="密码" v-model="loginUser.password" >
+            <input type="password" placeholder="密码" v-model.trim="loginUser.password" >
         </div>
         <div class="tips" @click="login">
             温馨提升：未注册过的账号，登录时将自动注册
@@ -58,7 +58,7 @@ export default {
                     if (isPasswordErr) {
                         this.$popUps.show("密码错误")
                     } else {
-                        this.loginSuc()
+                        this.loginUser.password ? this.loginSuc() : this.$popUps.show('密码为空')
                     }
                 } else {
                     this.loginSuc(true)

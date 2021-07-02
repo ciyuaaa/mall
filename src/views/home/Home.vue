@@ -112,7 +112,6 @@ export default {
          * 控制栏相关
          */
         tabClick(index) {
-            console.log(this.$refs.scorll.top)
             if (this.index !== index) {
                 this.goods[this.index].scrollTop = this.$refs.scorll.top
                 this.index = index
@@ -121,7 +120,6 @@ export default {
                 } else {
                     this.$refs.scorll.$el.scrollTop = this.goods[this.index].scrollTop
                 }
-                console.log(this.goods)
             }
         },
         getHomeData(type, page) {

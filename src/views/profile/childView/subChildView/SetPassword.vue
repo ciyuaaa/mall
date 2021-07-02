@@ -27,12 +27,10 @@ export default {
     },
     methods: {
         set() {
-            console.log(this.$store.state.isLogin)
             if (this.$store.state.isLogin) {
                 let sets = this.getUser.id === this.userId ? 
                 this.getUser.password === this.lowPassword ? true : this.$popUps.show('原密码错误')
                 : this.$popUps.show('账号错误')
-                console.log(this.getUser)
                 if (sets) {
                     if (this.newPassword === this.checkPassword) {
                         this.getUser.password = this.newPassword
@@ -44,7 +42,6 @@ export default {
                     }
                 } 
             } else {
-                console.log(this.$store.state.userAll)
                 let re = this.$store.state.userAll.find((item, index) => {
                     if (item.id === this.userId) {
                         this.password = item.password
@@ -60,7 +57,6 @@ export default {
                     if (this.newPassword === this.checkPassword) {
                         this.$store.state.userAll[this.index].password = this.newPassword
                         this.$store.commit('saveData')
-                        console.log(this.$store.state.userAll)
                         this.$popUps.show('已修改')
                         this.$router.back()
                     } else {
