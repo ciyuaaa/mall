@@ -74,6 +74,7 @@ export default new Vuex.Store({
       return state.userAll[state.userIndex]
     },
     currentProduct(state) {
+      console.log(state.isLogin, state.product)
       return state.isLogin ? 
       state.userAll[state.userIndex].product : state.product
     },
