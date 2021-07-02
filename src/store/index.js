@@ -55,7 +55,7 @@ export default new Vuex.Store({
       return !Object.keys(getters.currentProduct).length ? 0 : 
       getters.currentProduct[0].price.slice(0,1) + getters.currentProduct.reduce((prev, curr) => {
             if (curr.checkSelect) {
-              return prev + +(curr.price.slice(1) * curr.count)
+              return prev + +(curr.price.slice(1) * curr.count).toFixed(2)
             } else {
               return prev
             }

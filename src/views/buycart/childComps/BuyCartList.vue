@@ -34,6 +34,9 @@ export default {
         prod: [],
     },
     methods: {
+        select(item) {
+            item.checkSelect = !item.checkSelect
+        },
         less(item) {
             let store = this.$store
             return function () {
