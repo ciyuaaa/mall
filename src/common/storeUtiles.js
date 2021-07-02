@@ -1,29 +1,25 @@
 function add(product, prod) {
+
     function isAdd(product, prod) {
         if (!product.length) {
-        product.push(prod)
+            product.push(Object.assign({}, prod))
         } else {
-        product.find((item) => {
-            console.log(item.stock, prod.stock)
-            if (item.stock === prod.stock) {
-            item.count++
-            return  true
-            } else {
-            product.push(prod)
-            return true
-            }
-        })
+           let isHas = product.find((item) => {
+                return item.stock === prod.stock
+            })
+            isHas ? isHas.count++ : product.push(Object.assign({}, prod))
         }
     }
 
     if (Array.isArray(prod)) {
         prod.forEach((item) => {
-        isAdd(product, item)
+            isAdd(product, item)
         })
     } else {
         isAdd(product, prod)
     }
 }
+
 function less(product, prod) {
     if (product.length === 1) {
         product.pop()
