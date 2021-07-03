@@ -13,6 +13,11 @@
 ## 技术栈
 vue2 + vuex + vue-router + vue-cli + ES6/7 + fetch + flex
 
+## 关于接口数据
+此项目的所有接口数据都来源于coderwhy supermall 项目。
+
+启动本项目的命令为：npm run serve。
+
 ## 部分截图
 ### 首页
 ![home](https://user-images.githubusercontent.com/62799783/124255727-12df5600-db5d-11eb-9932-c829efbcb1f3.png)
